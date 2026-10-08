@@ -1,0 +1,42 @@
+# main text of home
+title: "Essenzara"
+description: |
+  Landing Page for Essenzara
+  
+markdown: kramdown
+kramdown:
+  hard_wrap: true
+
+# future: true
+unpublished: false
+
+lang: en
+
+google_analytics: ''
+
+contact:
+  headquarter: ""
+  email: "hello@essenzara.com"
+  phone: ""
+      
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jemoji
+  
+exclude:
+  - "Rakefile"
+  - "README.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "FAQ.md"
+
+emptyArray: []
+
+defaults:
+  - scope:
+      path: "static/**"
+    values:
+      sitemap: false
