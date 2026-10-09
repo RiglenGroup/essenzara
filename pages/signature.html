@@ -1,0 +1,215 @@
+---
+layout: default
+title: Email Signature Generator
+permalink: /signature
+sitemap: false
+---
+
+<div class="container">
+  <h1>Email Signature Generator</h1>
+
+  <div class="form">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="title" placeholder="Job Title">
+    <input type="text" id="email" placeholder="Email Address">
+    <input type="text" id="phone" placeholder="Phone Number">
+    <button onclick="generateSignature()">Generate Signature</button>
+  </div>
+
+  <h2>Preview</h2>
+  <div id="preview"></div>
+
+  <button onclick="copySignature()">Copy HTML</button>
+</div>
+
+<style>
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #0078D4;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#preview {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+</style>
+
+<script>
+function generateSignature() {
+  const name = document.getElementById("name").value;
+  const title = document.getElementById("title").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+
+  const signature = `
+    <div id="Signature" class="elementToProof">
+    <table style="text-align: left; width: 500px; color: rgb(68, 68, 68); box-sizing: border-box; border-collapse: collapse; border-spacing: 0px;">
+        <tbody>
+            <tr>
+                <td style="text-align: left; border-right: 2px solid rgb(86, 86, 86); padding-top: 5px; vertical-align: top; width: 143px; box-sizing: border-box;">
+                    <span style="font-family: Tahoma, sans-serif; font-size: 9pt; color: rgb(68, 68, 68);">
+                        <img src="https://essenzara.com/static/brand/signatures/2026/logo.png"
+                            alt="Essenzara Health Logo 2026"
+                            id="email-signature-2026-logo"
+                            width="116"
+                            height="116"
+                            loadstarttime="1731625139063"
+                            style="width: 120px; height: 120px; box-sizing: border-box;"/>
+                    </span>
+                </td>
+                <td style="text-align: left; width: 25px; box-sizing: border-box;"></td>
+                <td style="text-align: left; width: 331px; box-sizing: border-box;">
+                    <div style="text-align: left; font-family: Tahoma, sans-serif;">
+                        <span style="font-size: 10pt; color: #285f82;"><b>${name}</b></span>
+                        <br>
+                        <span style="font-size: 9pt; color: rgb(0, 0, 0); line-height: 16px;">${title}</span>
+                    </div>
+                    <div style="text-align: left; line-height: 16px; margin: 0px; padding-top: 18px; font-size: 9pt;">
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px; font-weight: 700;">
+                            <img border="0"
+                            width="13"
+                            alt="phone icon"
+                            style="border:0; height:13px; width:13px" 
+                            src="https://essenzara.com/static/brand/signatures/2026/icons/phone.png"\>
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px;">
+                            &nbsp;
+                            <a href="tel:${phone}" style="color: rgb(0, 0, 0); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">${phone}</a>
+                            &nbsp;
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68); line-height: 16px;">
+                            <br>
+                        </span>
+
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px; font-weight: 700;">
+                            <img border="0"
+                            width="13"
+                            alt="email icon"
+                            style="border:0; height:13px; width:13px" 
+                            src="https://essenzara.com/static/brand/signatures/2026/icons/envelope.png"\>
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px;">
+                            &nbsp;
+                            <a href="mailto:${email}" style="color: rgb(0, 0, 0); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">${email}</a>
+                            &nbsp;
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68); line-height: 16px;"><br></span>
+
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px; font-weight: 700;">
+                            <img border="0"
+                            width="13"
+                            alt="website icon"
+                            style="border:0; height:13px; width:13px" 
+                            src="https://essenzara.com/static/brand/signatures/2026/icons/globe-pointer.png"\>
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px;">
+                            &nbsp;
+                            <a href="https://essenzara.com" style="color: rgb(0, 0, 0); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">essenzara.com</a>
+                            &nbsp;
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68); line-height: 16px;"><br></span>
+
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px; font-weight: 700;">
+                            <img border="0"
+                            width="13"
+                            alt="location icon"
+                            style="border:0; height:13px; width:13px" 
+                            src="https://essenzara.com/static/brand/signatures/2026/icons/location-dot.png"\>
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px;">
+                            &nbsp;
+                            Zurich, Switzerland
+                            &nbsp;
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68); line-height: 16px;"><br></span>
+
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px; font-weight: 700;">
+                            <img border="0"
+                            width="13"
+                            alt="instagram icon"
+                            style="border:0; height:13px; width:13px" 
+                            src="https://essenzara.com/static/brand/signatures/2026/icons/instagram.png"\>
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(0, 0, 0); line-height: 16px;">
+                            &nbsp;
+                            <a href="https://www.instagram.com/EssenzaraHealth" target="_blank" rel="noopener" style="color: rgb(0, 0, 0); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">
+                                EssenzaraHealth
+                            </a>
+                            &nbsp;
+                        </span>
+                        <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68); line-height: 16px;"><br><br></span>
+
+                        <div class="social-links" style="display:none">
+
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(51, 122, 183);">
+                                <a href="https://www.instagram.com/EssenzaraHealth" target="_blank" rel="noopener" style="color: rgb(51, 122, 183); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">
+                                    <img border="0"
+                                    width="13"
+                                    alt="instagram icon"
+                                    style="border:0; height:13px; width:13px" 
+                                    src="https://essenzara.com/static/brand/signatures/2026/icons/instagram.png"\>
+                                </a>
+                            </span>
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68);">&nbsp;</span>
+
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(51, 122, 183);">
+                                <a href="https://www.linkedin.com/company/EssenzaraHealth" target="_blank" rel="noopener" style="color: rgb(51, 122, 183); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">
+                                    <img border="0"
+                                    width="13"
+                                    alt="linkedin icon"
+                                    style="border:0; height:13px; width:13px" 
+                                    src="https://essenzara.com/static/brand/signatures/2026/icons/linkedin.png"\>
+                                </a>
+                            </span>
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68);">&nbsp;</span>
+
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(51, 122, 183);">
+                                <a href="https://www.facebook.com/EssenzaraHealth" target="_blank" rel="noopener" style="color: rgb(51, 122, 183); text-decoration: none; margin-top: 0px; margin-bottom: 0px;">
+                                    <img border="0"
+                                    width="13"
+                                    alt="facebook icon"
+                                    style="border:0; height:13px; width:13px" 
+                                    src="https://essenzara.com/static/brand/signatures/2026/icons/facebook.png"\>
+                                </a>
+                            </span>
+                            <span style="font-family: Tahoma, sans-serif; color: rgb(68, 68, 68);">&nbsp;</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+        <br>
+    </div>
+</div>
+  `;
+
+  document.getElementById("preview").innerHTML = signature;
+}
+
+function copySignature() {
+  const html = document.getElementById("preview").innerHTML;
+
+  navigator.clipboard.writeText(html)
+    .then(() => alert("Signature HTML copied!"));
+}
+</script>
